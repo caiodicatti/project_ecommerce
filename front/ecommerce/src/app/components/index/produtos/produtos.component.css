@@ -1,0 +1,86 @@
+.content {
+  width: 80%;
+  margin: auto;
+}
+
+.titulo {
+  text-align: center;
+  margin: 3% 0% 2% 0%;
+  font-size: 2.8rem;
+  font-family: 'Montserrat';
+}
+
+.boxProduto {
+  display: block;
+  margin: auto;
+  border: black 1px solid;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  background-color: #00000021;
+  width: 105%;
+  height: 365px;
+}
+
+.img_produto {
+  max-width: 240px;
+  height: 220px;
+  border-radius: 5px;
+  border: 0.8px solid #0000000f;
+}
+
+.nomeProduto {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  font-family: 'Montserrat';
+}
+
+.precoProduto {
+  font-size: 16px;
+  margin-top: 1px;
+  color: rgb(143, 31, 31);
+}
+
+.botao {
+  background-color: #2e77c5;
+  color: white;
+  transition: 0.5s;
+  display: block;
+  margin: auto;
+}
+
+.botao:hover {
+  background-color: #245c97;
+  color: whitesmoke;
+}
+
+.botao_adc {
+  width: 100px;
+  background-color: rgb(139, 32, 32);
+  color: white;
+  transition: 0.5s;
+}
+
+.botao_adc:hover {
+  background-color: rgb(116, 25, 25);
+  color: whitesmoke;
+}
+
+.botao_remov {
+  width: 100px;
+  background-color: #b78c0a;
+  color: rgb(17, 17, 17);
+  transition: 0.5s;
+  font-weight: bold;
+}
+
+.botao_remov:hover {
+  background-color: #8f6d08;
+  color: black;
+}
+
+#divLink {
+  display: block;
+  margin: 3% auto;
+}

@@ -1,0 +1,76 @@
+.content {
+  width: 80%;
+  margin: auto;
+}
+
+.titulo {
+  text-align: center;
+  margin: 3% 0%;
+  font-family: 'Montserrat';
+}
+
+.boxInfo {
+  border: 1.5px solid #00000033;
+  padding: 25px;
+  font-size: 17px;
+  width: 29%;
+  display: block;
+  margin: auto;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 1px 2px 5px #00000094;
+  background: #00000014;
+}
+
+.txtNumPedido,
+.numeroPedido {
+  font-weight: bold;
+  font-size: 19.5px;
+}
+
+.numeroPedido {
+  margin-left: 2%;
+  color: rgb(139, 32, 32);
+}
+
+.infoCliente {
+  font-weight: bold;
+}
+
+.info {
+  font-weight: normal !important;
+  margin-left: 2%;
+}
+
+.divTable {
+  margin: 5% auto 0%;
+  width: 70%;
+  border: 1.5px solid #00000033;
+  border-radius: 4px;
+  box-shadow: 1px 2px 5px #00000094;
+  background: #00000014;
+}
+
+.tdTotal {
+  font-size: 17px;
+  font-weight: bold;
+  color: rgb(139, 32, 32);
+}
+
+#divBtn {
+  display: block;
+  width: 10%;
+  margin: 3% auto 1%;
+  height: 20px;
+}
+
+#botao {
+  width: 100px;
+  background-color: rgb(139, 32, 32);
+  color: white
+}
+
+#botao:hover {
+  background-color: rgb(116, 25, 25);
+  color: whitesmoke;
+}

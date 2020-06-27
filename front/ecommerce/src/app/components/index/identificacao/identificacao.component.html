@@ -1,0 +1,27 @@
+<div class="content">
+
+  <div class="box">
+    <h1 class="titulo">Identificação</h1>
+
+    <div class="sub_box">
+      <label class="lbl" for="">Nome:</label>
+      <input class="form-control" [(ngModel)]="nome" type="text">
+    </div>
+
+    <div class="sub_box">
+      <label class="lbl" for="">Email:</label>
+      <input class="form-control" [(ngModel)]="email" type="email">
+    </div>
+
+    <div class="sub_box">
+      <label class="lbl" for="">Telefone:</label>
+      <input class="form-control" [(ngModel)]="telefone" type="text" placeholder="( )" id="inputTelefone">
+    </div>
+
+    <div class="" id="divBtn">
+      <button class="btn botao" (click)="salvarCliente()">Finalizar Pedido</button>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,42 @@
+<div class="content">
+
+  <h2 class="titulo">Cesta de Compras</h2>
+
+  <div class="divTable">
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Produto</th>
+          <th scope="col">Valor</th>
+          <th scope="col" style="text-align: center;">Qtde</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let produto of produtos; let i = index;">
+          <td style="width: 45%;">{{ produto.nome }}</td>
+          <td style="width: 15%;">{{ formataValor(produto.preco_qtd) }}</td>
+          <td style="width: 15%; text-align: center;">{{ produto.qtd }}</td>
+          <td style="width: 15%;">
+            <button class="btn btnAcres" (click)="acrescenta(produto)">+</button>
+            <button class="btn btnDecr" (click)="decrementa(produto)">-</button>
+          </td>
+        </tr>
+        <tr>
+          <td class="tdTotal">Total</td>
+          <td class="tdTotal" colspan="3">{{ formataValor(valorTotal) }}</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <div class="" id="divBtn">
+    <button class="btn botao" (click)="paginacao()">Finalizar Compra</button>
+  </div>
+
+</div>

@@ -1,0 +1,26 @@
+<h2 class="titulo">Lista Produtos</h2>
+
+<div class="content">
+  <div class="row">
+    <div class="col-3" style="margin-bottom: 1%;" *ngFor="let produto of produtos; let i = index;">
+      <div class="boxProduto">
+        <div>
+          <img [src]=[produto.imagem] class="img_produto">
+        </div>
+        <p class="nomeProduto">{{ produto.nome }}</p>
+        <p class="precoProduto">Preço: {{ formataValor(produto.preco) }}</p>
+        <div *ngIf="produto.inList == false">
+          <button type="button" class="btn botao_adc" (click)="adicionaProduto(produto)">Adicionar</button>
+        </div>
+        <div *ngIf="produto.inList == true">
+          <button type="button" class="btn botao_remov" (click)="removerProduto(produto)">Remover</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="" id="divLink">
+    <button class="btn botao" (click)="paginacao()">Ir para carrinho de compras</button>
+  </div>
+
+</div>

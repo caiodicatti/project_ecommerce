@@ -1,0 +1,44 @@
+.content {
+  width: 80%;
+  margin: auto;
+}
+
+.box {
+  display: block;
+  margin: 5% auto;
+  width: 35%;
+  padding: 25px;
+  border: 1.5px solid #00000033;
+  border-radius: 5px;
+  height: 510px;
+  box-shadow: 1px 2px 5px #00000094;
+  background: #00000026;
+}
+
+.titulo {
+  text-align: center;
+  margin: 6% 0%;
+  font-family: 'Montserrat';
+}
+
+.lbl {
+  margin-top: 3%;
+  font-size: 17px;
+}
+
+#divBtn {
+  display: block;
+  margin: 70px auto 0%;
+  width: 140px;
+}
+
+.botao {
+  background-color: rgb(139, 32, 32);
+  color: white;
+  transition: 0.5s;
+}
+
+.botao:hover {
+  background-color: rgb(116, 25, 25);
+  color: whitesmoke;
+}
