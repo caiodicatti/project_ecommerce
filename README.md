@@ -5,7 +5,7 @@
 - ASP.NET Core 3.1
 - MySQL
 
-## - O projeto consiste basicamente em 4 telas:
+## O projeto consiste basicamente em 4 telas:
 *Lista de produto:*
 - Podendo adicionar ou remover produtos de sua cesta de compras.
 
