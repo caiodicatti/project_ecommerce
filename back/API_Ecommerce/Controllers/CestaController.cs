@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using API_Ecommerce.Model.Contexto;
 using API_Ecommerce.Model.Entidades;
+using API_Ecommerce.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -15,11 +16,11 @@ namespace API_Ecommerce.Controllers
     public class CestaController : ControllerBase
     {
 
-        private readonly BancoContext _context;
-        public CestaController(BancoContext context)
+        public CestaController(IRepositorio_ repositorio)
         {
-            _context = context;
+            repositorio_ = repositorio;
         }
+        public IRepositorio_ repositorio_ { get; set; }
 
         // POST api/<CestaController>
         [HttpPost]
@@ -31,11 +32,7 @@ namespace API_Ecommerce.Controllers
                 if (cestaCompras != null)
                 {
 
-                    foreach (Cesta obj in cestaCompras)
-                    {
-                        _context.Cesta.Add(obj);
-                    }
-                    _context.SaveChanges();
+                    repositorio_.cadastrarCestaCompra(cestaCompras);
                     return Ok();
 
                 }

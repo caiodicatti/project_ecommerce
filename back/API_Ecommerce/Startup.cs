@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API_Ecommerce.Model.Contexto;
+using API_Ecommerce.Repositorio;
+using API_Ecommerce.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +36,8 @@ namespace API_Ecommerce
                 options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc();
+
+            services.AddTransient<IRepositorio_, Repositorio_>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

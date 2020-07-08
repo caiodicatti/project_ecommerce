@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using API_Ecommerce.Model.Contexto;
 using API_Ecommerce.Model.Entidades;
 using API_Ecommerce.Model.Entidades.DTO;
+using API_Ecommerce.Repositorio.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -15,11 +16,11 @@ namespace API_Ecommerce.Controllers
     [ApiController]
     public class PedidoController : ControllerBase
     {
-        private readonly BancoContext _context;
-        public PedidoController(BancoContext context)
+        public PedidoController(IRepositorio_ repositorio)
         {
-            _context = context;
+            repositorio_ = repositorio;
         }
+        public IRepositorio_ repositorio_ { get; set; }
 
         // GET api/<PedidoController>/5
         [HttpGet("getPedido_ID/{id_pedido}")]
@@ -27,26 +28,14 @@ namespace API_Ecommerce.Controllers
         {
             try
             {
-                PedidoProdutosDTO retorno = new PedidoProdutosDTO();
-                Pedido pedido = new Pedido();
-                List<Cesta> cesta = new List<Cesta>();
 
                 if (id_pedido != 0)
                 {
-                    pedido = _context.Pedido.Where(x => x.id_pedido == id_pedido).FirstOrDefault();
-                    cesta = _context.Cesta.Where(c => c.id_pedido == id_pedido).ToList();
+                    var retorno = repositorio_.getPedido_ID(id_pedido);
 
-                    if(pedido != null && cesta != null)
-                    {
-                        retorno.numero = pedido.id_pedido;
-                        retorno.nome = pedido.nome;
-                        retorno.email = pedido.email;
-                        retorno.telefone = pedido.telefone;
-                        retorno.valorTotal = pedido.valor_total;
-                        retorno.produtos = cesta;
-
+                    if (retorno.nome != null || retorno.email != null || retorno.telefone != null || retorno.produtos != null)
+                    {                       
                         return Ok(retorno);
-
                     }
                     else
                     {
@@ -74,10 +63,8 @@ namespace API_Ecommerce.Controllers
             {
                 if(pedido != null)
                 {
-                    _context.Pedido.Add(pedido);
-                    _context.SaveChanges();
-                    return Ok(pedido);
-
+                    var retorno = repositorio_.cadastrarPedido(pedido);
+                    return Ok(retorno);
                 }
                 else
                 {

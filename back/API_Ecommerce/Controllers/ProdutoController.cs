@@ -6,6 +6,8 @@ using API_Ecommerce.Model.Contexto;
 using API_Ecommerce.Model.Entidades;
 using Microsoft.AspNetCore.Mvc;
 using System.Data.Entity;
+using API_Ecommerce.Repositorio;
+using API_Ecommerce.Repositorio.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,20 +15,19 @@ namespace API_Ecommerce.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProdutoController : ControllerBase
+    public class ProdutoController : Controller
     {
-        private readonly BancoContext _context;
-        public ProdutoController(BancoContext context)
+        public ProdutoController(IRepositorio_ repositorio)
         {
-            _context = context;
+            repositorio_ = repositorio;
         }
-
+        public IRepositorio_ repositorio_ { get; set; }
 
         [HttpGet]
         [Route("listarProdutos")]
         public ActionResult<IEnumerable<Produto>> listarProdutos()
         {
-            var produtos = _context.Produto.AsNoTracking().ToList();
+            var produtos = repositorio_.listarProdutos();
             return Ok(produtos);
         }
 
@@ -39,13 +40,8 @@ namespace API_Ecommerce.Controllers
             {
                 if(produtos != null)
                 {
-                    foreach(Produto obj in produtos)
-                    {
-                        _context.Produto.Add(obj);
-                    }
-                    
-                    _context.SaveChanges();
-                    return Ok(produtos);
+                    var retorno = repositorio_.cadastrarProduto(produtos);
+                    return Ok(retorno);
                 }
                 else
                 {
